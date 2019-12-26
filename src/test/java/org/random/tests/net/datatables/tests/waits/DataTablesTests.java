@@ -22,9 +22,9 @@ public class DataTablesTests {
     System.setProperty("webdriver.chrome.driver", "libs/chrome/chromedriver.exe");
 
     ChromeOptions options = new ChromeOptions();
-    options.setHeadless(true);
+    options.setHeadless(false);
 
-    WebDriver driver = new ChromeDriver();
+    WebDriver driver = new ChromeDriver(options);
 
     driver.manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
 
