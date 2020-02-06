@@ -25,22 +25,42 @@ public class TestClass {
     driver.manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
     driver.manage().window().maximize();
 
-    driver.get("https://lkwteile.autodoc.de/lastkraftwagen/mercedes-benz");
+    driver.get("https://www.autodoc.de/services/versand");
 
-    TimeUnit.SECONDS.sleep(1);
+    TimeUnit.SECONDS.sleep(3);
 
     JavascriptExecutor jse = (JavascriptExecutor) driver;
 
-    WebElement carName = driver.findElement(By.xpath("//select[@name='maker_id']"));
 
-    String value = carName.getText();
-    System.out.println(value);
+//    jse.executeScript("document.getElementById('TiershopOnline').setAttribute('style', 'display:none');");
+//    jse.executeScript("document.getElementById('TiershopOnline').setAttribute('style', 'display:block');");
+
+//    jse.executeScript("document.getElementById('TiershopOnline').setAttribute('style', 'width:500px');");
+//    jse.executeScript("document.getElementById('TiershopOnline').setAttribute('style', 'width:1260px');");
+
+    jse.executeScript("document.getElementsByClassName('header__logo-main')[0].setAttribute('target', '_blank')");
+    WebElement logo = (WebElement) jse.executeScript("return document.getElementsByClassName('header__logo-main')[0]");
+    logo.click();
 
 
-    System.out.println("======================================");
-    TimeUnit.SECONDS.sleep(4);
-    value = (String) jse.executeScript("return arguments[0].selectedOptions[0].innerText", carName);
-    System.out.println(value);
+
+
+
+    System.out.println();
+
+
+
+
+//    WebElement carName = driver.findElement(By.xpath("//select[@name='maker_id']"));
+//
+//    String value = carName.getText();
+//    System.out.println(value);
+//
+//
+//    System.out.println("======================================");
+//    TimeUnit.SECONDS.sleep(4);
+//    value = (String) jse.executeScript("return arguments[0].selectedOptions[0].innerText", carName);
+//    System.out.println(value);
 
 //    String selectedMark = (String) je.executeScript("return arguments[0].selectedOptions[0].innerText",
 //            hp_base.driver.findElement(SelectorLocator));
@@ -51,32 +71,13 @@ public class TestClass {
 //    driver.findElement(By.xpath("//a[text()='Загрузить файл']")).click();
 //    driver.findElement(By.xpath("//input[@type='file']")).sendKeys("C:\\Screenshots\\pic.png");
 
-
-
-
 //    Date dateNow = new Date();
 //    SimpleDateFormat format = new SimpleDateFormat("hh_mm_ss");
 //    String fileName = format.format(dateNow) + ".png";
 //    File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 //    FileUtils.copyFile(screenshot, new File("C:\\Screenshots\\" + fileName));
 
-
-
     driver.quit();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //    WebElement search = driver.findElement(By.xpath("//input[@class='header-search__input']"));
 //    String select = Keys.chord(Keys.CONTROL, "a");
